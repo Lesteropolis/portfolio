@@ -13,6 +13,12 @@
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
+//MIXIN
+@mixin flexy() {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
 /*
 ====================================
 Default Styling
@@ -25,6 +31,15 @@ img {
 
 body {
 	color: #333;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+
 }
 
 .container {
@@ -33,19 +48,60 @@ body {
 }
 
 .content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
+	// float: left;
+	// width: 65%;
+	// margin-right: 5%;
 }
 
 .full {
 	width: 100%;
 }
 
+//NAVIGATION
+
+nav {
+	// position: fixed;
+	left: 0;
+	right: 0;
+	padding-top: 40px;
 
 
+	a {
+		color: black;
+		text-transform: lowercase;
+		// font-size: 1.4rem;
+	}
 
+}
 
+header {
+	background: url(images/airbabycopy.jpg);
+	background-position: fixed 50%;
+	bottom: 0;
+	background-size: cover;
+	height: 100vh;
+
+}
+.headerFlex {
+	@include flexy();
+	// justify-content: space-between;
+	align-items: center;
+	
+}
+
+//PORTFOLIO
+.portfolioContainer {
+	display: flex;
+	
+
+	// p {
+	// 	width: 50%;
+	// }
+}
+
+.portfolioImage {
+	border: 1px solid black;
+}
 
 
 

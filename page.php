@@ -22,7 +22,6 @@
                 'cat'=>6,
                 'orderby'=>'title',
                 'order'=>'ASC'
-            
                 )
             ); ?>
       ​
