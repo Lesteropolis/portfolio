@@ -8,7 +8,7 @@
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+  <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
@@ -19,26 +19,29 @@
 <body <?php body_class(); ?>>
 
 
-<nav>
-  <div class="container headerFlex">
-    <!-- <h1>
-      <a href="#">Lester</a>
-    </h1> -->
-    <?php wp_nav_menu( array(
-      'container' => false,
-      'theme_location' => 'primary'
-    )); ?>
-  </div>
-</nav>
 
 <header>
+  
+  <nav id="navbar" class="navDefault">
+    <!-- <div class="navContainer">
+      <div class="navAdd">
+        <span class="element"></span>
+      </div>
+      <div class="navAdd">
+        <p>front-end developer | code breaker</p>
+      </div>
+      <?php wp_nav_menu( array(
+        'container' => false,
+        'theme_location' => 'primary'
+      )); ?>
+    </div>
+  </nav> -->
 
-<!--   <?php if( get_field('hero_image') ): ?>
-      <?php $image = get_field('hero_image'); ?>
-      <img src="<?php echo $image['sizes']['large']; ?>" />
-  <?php endif; ?> -->
-
-    
-  </div> <!-- /.container -->
+  <a href="#about">
+  <svg class="arrows">
+    <path class="a1" d="M0 0 L30 32 L60 0"></path>
+    <path class="a2" d="M0 20 L30 52 L60 20"></path>
+    <path class="a3" d="M0 40 L30 72 L60 40"></path>
+  </svg>
+  </a>
 </header><!--/.header-->
-
