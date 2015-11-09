@@ -23,7 +23,7 @@
 <header>
   
   <nav id="navbar" class="navDefault">
-    <!-- <div class="navContainer">
+    <div class="navContainer">
       <div class="navAdd">
         <span class="element"></span>
       </div>
@@ -35,7 +35,7 @@
         'theme_location' => 'primary'
       )); ?>
     </div>
-  </nav> -->
+  </nav>
 
   <a href="#about">
   <svg class="arrows">
