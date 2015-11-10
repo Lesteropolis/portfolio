@@ -61,7 +61,7 @@
                         <h3><?php the_title(); ?></h3>
                         <p><?php the_content(); ?></p>
                         <p class="tags"><span>I used:</span> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' ';}?></p>
-                        <p><a href="#"><button>View Live</button></a></p>
+                        <p><a href="<?php the_field('portfolio_url') ?>" target="_blank"><button>View Live</button></a></p>
                       </div>                    
                   </div> <!-- featured -->
               <?php endwhile; ?>
@@ -88,7 +88,7 @@
              <span class="my_own_class sass">&#xe64b</span>
              <span class="my_own_class wordpress">&#xe60b</span>
            </div>
-           <h3>Workflow</h3>
+           <h3 class="workflow">Workflow</h3>
            <div class="iconSpace">
              <span class="my_own_class sublime">&#xe6aa</span>
              <span class="my_own_class trello">&#xe65a</span>

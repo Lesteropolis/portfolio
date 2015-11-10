@@ -1,14 +1,5 @@
 $(function(){
 
-	 // $(window).scroll(function () {
-  //     if ($(this).scrollTop() > $('#about')) {
-  //        $('nav').addClass('changeColor')
-  //     }
-  //     if ($(this).scrollTop() < 50) {
-  //        $('nav').removeClass('changeColor')
-  //     }
-  //  });
-
  // var scroll_start = 0;
  // var startchange = $('#about');
  // var offset = startchange.offset();
@@ -16,11 +7,11 @@ $(function(){
  //    scroll_start = $(this).scrollTop();
  //    console.log(offset.top);
  //    console.log(scroll_start);
- //    if(scroll_start > 50) {
+ //    if(scroll_start > 50 && !$('#navbar').hasClass('navChange')) {
  //        $('#navbar').addClass('navChange').removeClass('navDefault');
  //        $('div.navAdd').addClass('hidden');
         
- //     } else {
+ //     } else { 
  //        $('#navbar').addClass('navDefault').removeClass('navChange')
  //        $('div.navAdd').removeClass('hidden');
       
@@ -50,6 +41,13 @@ $(function(){
       });
   });
 
+  $("#arrows").click(function(event) {
+    event.preventDefault();
+      $.smoothScroll({
+        scrollTarget: '#about'
+      });
+  });
+
   $("#portfolioClick").click(function(event) {
     event.preventDefault();
       $.smoothScroll({
@@ -58,6 +56,13 @@ $(function(){
   });
 
   $("#homeClick").click(function(event) {
+    event.preventDefault();
+      $.smoothScroll({
+        scrollTarget: '#home'
+      });
+  });
+
+  $("#backTop").click(function(event) {
     event.preventDefault();
       $.smoothScroll({
         scrollTarget: '#home'
@@ -77,6 +82,7 @@ $(function(){
         scrollTarget: '#contact'
       });
   });
+
 
 
 });

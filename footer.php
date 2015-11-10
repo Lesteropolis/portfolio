@@ -1,6 +1,6 @@
 <footer>
   <div class="container">
-    <p>&copy; Lester Aloysius James Garcia Carreon <?php echo date('Y'); ?></p>
+    <p>&copy; Lester Aloysius James Garcia Carreon <?php echo date('Y'); ?> | <a href="#home" id="backTop">Back to top</a></p>
   </div>
 </footer>
 
