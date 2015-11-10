@@ -8,8 +8,12 @@
       <?php endwhile; // end the loop?>
       
       <!-- ABOUT -->
-
-      <section class="about" id="about"> 
+    
+      <section class="about" id="about">
+        <div class="container">
+          <h2 class="accentBorder">Let's Chat!</h2>
+        </div>
+        
         <div class="container aboutContainer">
           <div>
             <?php if( get_field('about_image') ): ?>
@@ -18,13 +22,8 @@
               <?php endif; ?> 
           </div>
           <div class="blurb">
-            <h2>Let's Chat!</h2>
             <p>Hey! I'm Lester Carreon and I am a front-end web developer. I'm also a certified Project Management Professional (PMP), street dancer, world traveller, and overall pretty cool guy. I'm a graduate from the University of Toronto with a  degree in communications and a proud member of Cohort 8 "Planet of the 8s" from HackerYou.</p>
-
             <p>My approach to making websites goes beyond just writing code. I like to integrate my planning and interpersonal skills with my technical expertise to develop functional, innovative, and responsive websites.</p>
-
-            <h3>Give me a shout!</h3>
-
             <ul>
               <li><a href="https://twitter.com/Lesteropolis" target="_blank"><i class="fa fa-twitter"></i></a></li>
               <li><a href="https://www.linkedin.com/in/lestercarreon" target="_blank"><i class="fa fa-linkedin"></i></a></li>
@@ -33,45 +32,34 @@
             </ul>         
           </div>  
         </div>    
-
-
       </section>
-      <div class="line"></div>
- <!--           <div>
-             <ul class="loader">
-              <li></li>
-              <li></li>
-              <li></li>
-             </ul>
-           </div>   -->
+
+      
       
       <!-- PORTFOLIO -->
       <section class="portfolio">
         <div class="container">
-          <h2>Portfolio</h2>
-          <p>Here's a collection of my work.</p>
+          <h2 class="accentBorder">Portfolio</h2>
             <?php $portfolioQuery = new WP_query(
                   array(
                     'post_type'=>'portfolio',
                     'order'=>'ASC'
                     )
                 ); ?>
-          ​
             <!-- The loop -->
             <?php if ($portfolioQuery->have_posts()): ?>
               <?php while($portfolioQuery->have_posts()): $portfolioQuery->the_post(); ?>
                 <!-- stuff goes here -->
-                  <div class="featured">
-                    <h3><?php the_title(); ?></h3>
-                    <div class="portfolioContainer">
+                  <div class="portfolioContainer">                   
                       <div class="portfolioImage">
                         <?php the_post_thumbnail('full'); ?>
                       </div>
-                      <div>
+                      <div class="portfolioContent">
+                        <h3><?php the_title(); ?></h3>
                         <p><?php the_content(); ?></p>
-                      </div>
-                    </div>   
-                    <?php the_category(); ?> 
+                        <p class="tags"><span>I used:</span> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' ';}?></p>
+                        <p><a href="#"><button>View Live</button></a></p>
+                      </div>                    
                   </div> <!-- featured -->
               <?php endwhile; ?>
               <?php wp_reset_postdata(); ?>
@@ -80,82 +68,41 @@
       </section>
   
       
-      <section class="freeze">
-        
+      <section class="freeze" >
       </section>
 
-     
-      <!-- SKILLS -->
-      <section class="skills">
-        <div class="container">
-          <h2>Skills</h2>
-
-          <div>
-            <h3>Tech stuff</h3>
-
-
-          </div>
-          <div class="devIconContainer">
-            <div>
-              <span class="my_own_class">&#xe636</span>
-              <h4>HTML5</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe64a</span>
-              <h4>CSS3</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe681</span>
-              <h4>Javascript</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe650</span>
-              <h4>jQuery</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe64b</span>
-              <h4>SASS</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe60b</span>
-              <h4>WordPress</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe663</span>
-              <h4>Gulp</h4>
-            </div>
-            
-            <div>
-              <span class="my_own_class">&#xe602</span>
-              <h4>Git</h4>
-            </div>
-
-            <div>
-              <span class="my_own_class">&#xe608</span>
-              <h4>Github</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe6aa</span>
-              <h4>Sublime Text</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe65a</span>
-              <h4>Trello</h4>
-            </div>
-            <div>
-              <span class="my_own_class">&#xe695</span>
-              <h4>Terminal</h4>
-            </div>
-          </div>
-
-        </div>
-      </section> <!-- / section.skills -->
+     <!-- SKILLS -->
+     <section class="skills" id="skills">
+       <div class="container">
+         <h2 class="accentBorder">Skills</h2>
+         <div>
+           <div class="iconSpace">
+             <h3>Tech stuff</h3>
+             <span class="my_own_class html5">&#xe636</span>
+             <span class="my_own_class css3">&#xe64a</span>
+             <span class="my_own_class js">&#xe681</span>
+             <span class="my_own_class jQuery">&#xe650</span>
+             <span class="my_own_class sass">&#xe64b</span>
+             <span class="my_own_class wordpress">&#xe60b</span>
+           </div>
+           <div class="iconSpace">
+             <h3>Workflow</h3>
+             <span class="my_own_class sublime">&#xe6aa</span>
+             <span class="my_own_class trello">&#xe65a</span>
+             <span class="my_own_class terminal">&#xe695</span>
+             <span class="my_own_class gulp">&#xe663</span>
+             <span class="my_own_class bootstrap">&#xe647</span>
+             <span class="my_own_class npm">&#xe61e</span>
+           </div>
+         </div> <!-- / wrapper  -->
+     </section> <!-- / section.skills -->
+      
       
     </div> <!-- /,content -->
 
   <section class="contact" id="contact">
     <div class="container">
-      <h2>Contact</h2>
+      <h2 class="accentBorder">Contact</h2>
       <ul>
         <li><a href="https://twitter.com/Lesteropolis" target="_blank"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.linkedin.com/in/lestercarreon" target="_blank"><i class="fa fa-linkedin"></i></a></li>

@@ -32,6 +32,11 @@ $(function(){
     strings: ["Hi, I'm Lester","This is my site", "Hi, I'm Lester"],
     typeSpeed: 0
   });
+
+  //Bars
+  $('.fa-bars').on('click', function(){
+    $('ul.nav').addClass('flexplicit');
+  });
  
 
 });

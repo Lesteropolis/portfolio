@@ -21,8 +21,9 @@
 	flex-direction: row;
 }
 
-$black: #333;
-$yellow: #F8DC5D;
+// $black: #333;
+$black: #101110;
+$yellow: #F8D233;
 $blue: #5d79f8;
 $white: #fff;
 /*
@@ -30,14 +31,25 @@ $white: #fff;
 Default Styling
 ====================================
 */
-.hidden {
-	display: none;
+
+.accentBorder:after {
+    content: "";
+    width: 5vh;
+    height: 3px;
+    position: absolute;
+    bottom: -1.5vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: $blue;
 }
 
-.line {
-	border-bottom: 1px solid $blue;
-	width:70%;
-	margin: 0 auto;
+.accentBorder {
+    position: relative;
+}
+
+.hidden {
+	display: none;
 }
 
 body {
@@ -52,6 +64,7 @@ h1,h2,h3{
 	font-weight: 700;
 
 }
+
 a {
 	transition: 1s all;
 
@@ -65,19 +78,25 @@ a:hover {
 section {
 	padding: 4rem 0;
 }
+
 h1 {
 	font-size: 3.2rem;
 	padding: 0;
 	margin: 0;
 }
+
 h2 {
 	color: $black;
-	font-size: 2rem;
+	font-size: 2.5rem;
+	text-align: center;
 
 }
 
 h3 {
-	color: $blue;
+	font-size: 2rem;
+	color: $black;
+	padding-top: 0;
+	margin-top: 0;
 }
 
 ul {
@@ -85,6 +104,7 @@ ul {
 	padding: 0;
 	margin: 0;
 }
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -98,7 +118,6 @@ ul {
 nav {
 	transition: 0.5s all;
 	font-family: 'Montserrat', sans-serif;
-	
 	
 	a {
 
@@ -116,12 +135,17 @@ nav {
 		padding-right: 0;
 	}
 
+	//THE MENU
+	ul.menu {
+	}
+
 }
 
 .navContainer {
-	padding: 2rem;
+	padding: 1.5rem;
 }
 
+//WHEN YOU SCROLL DOWN THE MENU CHANGES
 .navChange {
 	position: fixed;
 	top: 0;
@@ -129,8 +153,8 @@ nav {
 	right: 0;
 	padding: 0;
 	text-align: center;
-   	background: rgba($yellow, 1);
-   	background: rgba($black, 0.8);
+   	background: $black;
+   	border-bottom: $white;
    	z-index: 1;
 	
 	a {
@@ -148,12 +172,16 @@ nav {
 
 	a {
 		color: $white;
-		// padding: 10px;
-		// background: $black;
-		// border-radius: 20px;
 	}
 }
 
+//HAMBURGER
+.fa-bars {
+	display: none;
+}
+
+
+//HEADER
 header {
 	background: url(images/airbaby8.jpg);
 	background-position: fixed 50%;
@@ -165,49 +193,38 @@ header {
 
 //ABOUT 
 section.about {
-
+	
 	.fa {
-		font-size: 2rem;
+		font-size: 3rem;
+	}
+
+	.blurb {
+		padding: 0 3rem 1rem 3rem;
 	}
 
 	ul {
 		display: flex;
+		
 		li {
 			padding-right: 3rem;
 		}
 
+		a {
+			color: $black;
+		}
+
+		a:hover {
+			color: $blue;
+		}
 	}
-	
-	a {
-		color: $yellow;
-	}
-
-	a:hover {
-		color: $blue;
-	}
-
-
-	h2 {
-		padding: 0;
-		margin-top: 0;
-	}
-
-
 
 }
 
 .aboutContainer {
 	display: flex;
-
+	
 	img {
 		border-radius: 50%;
-	}
-
-	.blurb {
-
-		& > * {
-			padding-left: 2rem;
-		}
 	}
 }
 
@@ -220,15 +237,56 @@ section.portfolio {
 		padding: 0;
 		margin-top: 0;
 	}
+
+	button {
+		transition: 0.4s ease;
+		padding: 1rem;
+		position: relative;
+		border: none;
+		text-transform: uppercase;
+		background: $black;
+		color: #fff;
+		font-weight: 700;
+		margin-right: 1vh;
+		outline: none;
+	}
+
+	button:before, .buttonStyle:before {
+	    left: -10px;
+	    border-color: transparent #333;
+	}
 }
 
 .portfolioContainer {
 	display: flex;
-	flex-wrap: wrap;
+	& > * {
+		flex: 1 0 calc(50% - 30px);
+		margin: 15px;
+	}
+	padding: 1.5rem
 }
 
+.tags {
+	color: $blue;
+	font-weight: 700;
+	span {
+		color: $black;
+	}
+
+}
+
+.portfolioContainer:nth-child(odd) {
+    background: $yellow;
+    .tags {
+    	color: $white;
+    }
+    .portfolioImage {
+    	order: 2;
+    }
+}
+
+
 .portfolioImage {
-	border: 1px solid black;
 
 	img {
 		width: 100%;
@@ -249,26 +307,73 @@ section.freeze {
 }
 
 //SECTION.SKILLS
-.my_own_class{
-	font-family: "devicons"; 
-	font-size:7rem;
-	transition: 1s all;
-
-}
-.my_own_class:hover {
-	color: $yellow;
-	transition: 1s all;
-
-}
-.devIconContainer {
+section.skills {
+	padding-top: 0;
 	text-align: center;
-	@include flexy();
-	& > * {
-		flex: 1 0 25%;
+
+	.my_own_class {
+		font-family: "devicons"; 
+		font-size:7rem;
+		padding: 0 1rem;
 	}
+
+	.iconSpace {
+		padding: 2rem;
+	}
+
 }
 
 
+
+
+//DEVICONS 
+.html5 {
+	color: #E07141;
+}
+
+.css3 {
+	color: #4FABDE;
+}
+
+.js {
+	color: #EFD65B;
+}
+
+.jQuery {
+	color: #276CAB;
+}
+
+.sass {
+	color: #BD719A;
+}
+
+.wordpress {
+	color: #387598;
+}
+
+.sublime {
+	color: #4C4C4C;
+}
+
+.trello {
+	color: #356886
+}
+
+.terminal {
+	color: black;
+}
+
+.gulp {
+	color: #D65C57;
+}
+
+.bootstrap {
+	color: #4F437C;
+}
+
+.npm {
+	color: #BB4943;
+}
 
 //CONTACT
 section.contact {
@@ -297,13 +402,12 @@ section.contact {
 			padding-right: 0;
 		}
 
-		a {
-			
-			color: $blue;
+		a {	
+			color: $black;
 		}
 
 		a:hover {
-			color: $yellow;
+			color: $blue;
 		}
 
 
@@ -314,7 +418,6 @@ section.contact {
 		width: 50%;
 		padding: 20px;
 		font-family: 'Montserrat', sans-serif;			
-		border-radius: 10px;
 		p {
 			text-transform: uppercase;
 		}
@@ -325,8 +428,7 @@ section.contact {
 
 input, textarea {
 	width: 100%;
-	border:1px solid $blue;
-	border-radius: 10px;
+	border:1px solid $black;
 	background: rgba($white, 0.7)
 	
 }
@@ -339,7 +441,23 @@ input[type=submit] {
 	border: none;
 	color: $white;
 	text-transform: uppercase;
-	border-radius: 10px;
+	padding: 1rem;
+	font-weight: 700;
+}
+
+
+//FOOTER
+footer {
+
+	color: $white;
+	margin: 0;
+	padding: 1.5rem;
+	background: $black;
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php  wp_title('|', true, 'right'); ?></title>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
   <?php // Load our CSS ?>
@@ -30,10 +30,21 @@
       <div class="navAdd">
         <p>front-end developer | code breaker</p>
       </div>
-      <?php wp_nav_menu( array(
+      <div class="hamburger-holder">
+        <i class="fa fa-bars fa-2x"></i>
+        <ul class="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="">LC</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+<!--         <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'primary'
-      )); ?>
+      )); ?> -->
+      </div>
+      
     </div>
   </nav>
 
