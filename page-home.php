@@ -11,7 +11,7 @@
     
       <section class="about" id="about">
         <div class="container">
-          <h2 class="accentBorder">Let's Chat!</h2>
+          <h2 class="accentBorder">About me</h2>
         </div>
         
         <div class="container aboutContainer">
@@ -24,12 +24,15 @@
           <div class="blurb">
             <p>Hey! I'm Lester Carreon and I am a front-end web developer. I'm also a certified Project Management Professional (PMP), street dancer, world traveller, and overall pretty cool guy. I'm a graduate from the University of Toronto with a  degree in communications and a proud member of Cohort 8 "Planet of the 8s" from HackerYou.</p>
             <p>My approach to making websites goes beyond just writing code. I like to integrate my planning and interpersonal skills with my technical expertise to develop functional, innovative, and responsive websites.</p>
-            <ul>
-              <li><a href="https://twitter.com/Lesteropolis" target="_blank"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/lestercarreon" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="https://github.com/Lesteropolis" target="_blank"><i class="fa fa-github"></i></a></li>
-              <li><a href="https://medium.com/@lesteropolis" target="_blank"><i class="fa fa-medium"></i></a></li>
-            </ul>         
+            <div class="ulCenter">
+              <ul>
+                <li><a href="https://twitter.com/Lesteropolis" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/lestercarreon" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/Lesteropolis" target="_blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://medium.com/@lesteropolis" target="_blank"><i class="fa fa-medium"></i></a></li>
+              </ul>
+            </div>
+                     
           </div>  
         </div>    
       </section>
@@ -37,7 +40,7 @@
       
       
       <!-- PORTFOLIO -->
-      <section class="portfolio">
+      <section class="portfolio" id="portfolio">
         <div class="container">
           <h2 class="accentBorder">Portfolio</h2>
             <?php $portfolioQuery = new WP_query(
@@ -76,8 +79,8 @@
        <div class="container">
          <h2 class="accentBorder">Skills</h2>
          <div>
+            <h3>Tech stuff</h3>
            <div class="iconSpace">
-             <h3>Tech stuff</h3>
              <span class="my_own_class html5">&#xe636</span>
              <span class="my_own_class css3">&#xe64a</span>
              <span class="my_own_class js">&#xe681</span>
@@ -85,8 +88,8 @@
              <span class="my_own_class sass">&#xe64b</span>
              <span class="my_own_class wordpress">&#xe60b</span>
            </div>
+           <h3>Workflow</h3>
            <div class="iconSpace">
-             <h3>Workflow</h3>
              <span class="my_own_class sublime">&#xe6aa</span>
              <span class="my_own_class trello">&#xe65a</span>
              <span class="my_own_class terminal">&#xe695</span>

@@ -118,61 +118,82 @@ ul {
 nav {
 	transition: 0.5s all;
 	font-family: 'Montserrat', sans-serif;
-	
-	a {
+	border-bottom: 1px solid $white;
 
-		font-family: 'Montserrat', sans-serif;
-		color: $black;
-		text-transform: uppercase;
-		font-size: 1.5rem;
+	.navContainer {
+		padding: 0.5rem 1.5rem ;
 	}
 
-	a:last-child {
-		padding-right: 0;
+}
+
+ul.nav {
+	@include flexy();
+	justify-content: center;
+	align-items: center;
+
+	a {
+		font-weight: 700;
+	}
+
+	li {
+		padding-right: 2rem;
 	}
 
 	li:last-child {
 		padding-right: 0;
 	}
 
-	//THE MENU
-	ul.menu {
-	}
+}
+
+.title {
+	@include flexy();
+	justify-content: flex-end;
 
 }
 
-.navContainer {
-	padding: 1.5rem;
-}
 
 //WHEN YOU SCROLL DOWN THE MENU CHANGES
+.navDefault {
+	background: $black;
+	text-align: right;
+	position: fixed;
+	z-index: 999999999999999;
+	left: 0;
+	right: 0;
+	top: 0;
+	a {
+		color: $white;
+		font-family: 'Montserrat', sans-serif;
+		text-transform: uppercase;
+		font-size: 1rem;
+	}
+}
+
+
 .navChange {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	padding: 0;
-	text-align: center;
    	background: $black;
    	border-bottom: $white;
-   	z-index: 1;
+   	z-index: 99999;
 	
 	a {
-		color: #fff;
+		color: $white;
+		font-family: 'Montserrat', sans-serif;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+	}
+
+	ul.nav {
+		justify-content: center;
 	}
 }
 
-.navDefault {
-	background: none;
-	text-align: right;
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-
-	a {
-		color: $white;
-	}
+.menuChange {
+	padding: 1.5rem;
 }
 
 //HAMBURGER
@@ -180,14 +201,46 @@ nav {
 	display: none;
 }
 
+.flexplicit {
+	display: flex !important;
+}
+
 
 //HEADER
 header {
-	background: url(images/airbaby8.jpg);
+	background: url(images/airbaby.jpg);
 	background-position: fixed 50%;
 	bottom: 0;
 	background-size: cover;
 	height: 100vh;
+	@include flexy();
+	justify-content: flex-end;
+	align-items: flex-end;
+	.title	{
+		@include flexy();
+		flex-direction: column;
+		padding-right: 2rem;
+
+		p {
+			margin-top: 0;
+			font-size: 2rem;
+		}
+
+	}
+	
+	.logoDiv {
+		width: 50px;
+	}
+}
+
+//EXTRA
+.element {
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 4rem;
+	padding: 0;
+	margin: 0;
 }
 
 
@@ -203,7 +256,7 @@ section.about {
 	}
 
 	ul {
-		display: flex;
+		@include flexy();
 		
 		li {
 			padding-right: 3rem;
@@ -217,12 +270,12 @@ section.about {
 			color: $blue;
 		}
 	}
-
 }
+
 
 .aboutContainer {
 	display: flex;
-	
+	flex-direction: row;
 	img {
 		border-radius: 50%;
 	}
@@ -377,7 +430,7 @@ section.skills {
 
 //CONTACT
 section.contact {
-	background: url(images/chair.jpg) 100% 100%;
+	background: url(images/chair.jpg) center;
 	background-size: cover;
 	
 	h2 {
@@ -435,25 +488,25 @@ input, textarea {
 
 
 input[type=submit] {
+	background: $black;
+	color: $white;
 	width: 100%;
 	text-align: center;
-	background: $black;
-	border: none;
-	color: $white;
 	text-transform: uppercase;
 	padding: 1rem;
 	font-weight: 700;
+	border: none;	
+
 }
 
 
 //FOOTER
 footer {
-
+	background: $black;
 	color: $white;
 	margin: 0;
 	padding: 1.5rem;
-	background: $black;
-
+	text-align: center;
 	p {
 		margin: 0;
 		padding: 0;
@@ -484,15 +537,7 @@ footer {
     100% { opacity:1; }
 }
 
-//EXTRA
-.element {
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
-	font-size: 3.2rem;
-	padding: 0;
-	margin: 0;
-}
+
 
 /*ARROWS*/
 .arrows {
@@ -580,6 +625,194 @@ footer {
 	100%{
 		height: 10px;
 		margin-top: 25px;
+	}
+}
+
+.reveal {
+	display: none;
+}
+//RESPONSIVE SITE
+
+/* Portrait tablet and small desktops */
+@media (max-width: 1200px) {
+	.arrows {
+		display: none;
+	}
+
+
+}
+
+
+@media (max-width: 940px) {
+	section.skills {
+
+		h3 {
+			padding: 0;
+			margin: 0;
+		}
+		.iconSpace {
+			@include flexy();
+			& > * {
+				flex: 1 0 33%;
+			}
+		}
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 800px) {
+	section.about {
+		text-align: center;
+
+		.blurb {
+			padding: 1.5rem;
+		}
+
+		ul {
+			@include flexy();
+			justtify-content: center;
+			
+			li {
+				text-align: center;
+				padding-right: 1rem;
+			}
+		}
+
+		.ulCenter {
+			@include flexy();
+			justify-content: center;
+		}
+	}
+
+	.aboutContainer {
+		flex-direction: column;
+	}
+
+	//portfolio mediaquery
+	section.portfolio {
+		text-align: center;
+	}
+	.portfolioContainer {
+		display: flex;
+		flex-direction: column;
+		& > * {
+			flex: 1 0 calc(50% - 30px);
+			margin: 15px;
+		}
+		padding: 1.5rem;
+	}
+
+	.portfolioContainer:nth-child(odd) {
+
+	    .portfolioImage {
+	    	order: -1;
+	    }
+	}
+
+	.post-categories {
+		display: flex;
+	}
+}
+
+@media (max-width: 768px) {
+	//navigation 
+	ul.nav {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+		height: 100%;
+		width: 100%;
+		background: $black;
+		color: $white;	
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		li {
+			flex: none;
+			padding: 1rem;
+		}
+
+		li a {
+			font-size: 2rem;
+			color: $white;
+		}
+
+	}
+
+	// .logo {
+	// 	padding-left: 2rem;
+	// }
+
+	.fa-bars {
+		color: $white;
+		padding-right: 2rem;
+		display: inline-block;
+		cursor: pointer;
+	}
+}
+
+@media (max-width: 600px) {
+	section.contact {
+		background: none;
+		padding-bottom: 0;
+		
+		.fa {
+			font-size: 2rem;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: center;
+
+		}
+
+		.contactFun {
+			width: 100%;
+		}
+	}
+
+
+
+	input, textarea {
+		width: 100%;	
+	}
+
+
+
+}
+
+/* Landscape phones and down */
+
+
+@media (max-width: 480px) {
+	.reveal {
+		text-align: center;
+		display: block;
+	}
+	header {
+		background: none;
+		background-position: fixed 50%;
+		bottom: none;
+		background-size: none;
+		height: 40vh;
+		.title {
+			display: none;
+		}
+	}
+
+	section.freeze {
+		display: none;
+	}
+
+	h1 {
+		margin: 0;
+		padding: 0;
 	}
 }
 
